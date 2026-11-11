@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Police Command HQ — Edge AI & Quantum-Safe Evidence Management</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%22100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+</head>
+<body>
+
+  <!-- ======================================================================
+       LOGIN SCREEN WITH 3-ROLE SELECTOR (ADMIN, POLICE, CITIZEN USER)
+       ====================================================================== -->
+  <div id="login-screen" style="display: none; width: 100vw; height: 100vh; background: radial-gradient(circle at center, #101624 0%, #06080d 100%); align-items: center; justify-content: center;">
+    <div style="width: 100%; max-width: 480px; background: rgba(16, 23, 37, 0.9); border: 1px solid rgba(0, 240, 255, 0.3); border-radius: var(--radius-lg); padding: 32px 36px; box-shadow: 0 0 40px rgba(0, 0, 0, 0.8); backdrop-filter: blur(16px);">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <div style="display: inline-flex; width: 50px; height: 50px; background: linear-gradient(135deg, #0077ff, #00f0ff); border-radius: 12px; align-items: center; justify-content: center; font-size: 26px; box-shadow: 0 0 20px rgba(0, 240, 255, 0.4); margin-bottom: 10px;">
+          🛡️
+        </div>
+        <h1 style="font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: 1.5px; color: #fff;">
+          CRIME DETECTION & EVIDENCE SYSTEM
+        </h1>
+        <div style="font-size: 11px; color: var(--accent-cyan); font-family: var(--font-mono); margin-top: 2px;">
+          NIST FIPS 203 ML-KEM-768 + AES-256-GCM
+        </div>
+      </div>
+
+      <!-- 3-Role Tab Selector -->
+      <div style="display: flex; gap: 6px; margin-bottom: 20px; background: var(--bg-secondary); padding: 4px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+        <button type="button" id="role-tab-admin" class="filter-btn active" style="flex: 1; text-align: center; padding: 8px 4px; font-size: 11px;">
+          🛡️ Admin
+        </button>
+        <button type="button" id="role-tab-police" class="filter-btn" style="flex: 1; text-align: center; padding: 8px 4px; font-size: 11px;">
+          👮 Police
+        </button>
+        <button type="button" id="role-tab-user" class="filter-btn" style="flex: 1; text-align: center; padding: 8px 4px; font-size: 11px;">
+          📹 Citizen / User
+        </button>
+      </div>
+
+      <div id="login-error-msg" style="display: none; padding: 10px 14px; background: rgba(255, 43, 86, 0.2); border: 1px solid var(--accent-red); color: var(--accent-red); border-radius: var(--radius-sm); font-size: 12px; margin-bottom: 16px;"></div>
+
+      <form id="login-form">
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;" id="login-user-label">
+            Username / Badge
+          </label>
+          <input type="text" id="login-username" value="admin" required class="search-input" style="width: 100%; padding: 10px 12px;">
+        </div>
+
+        <div style="margin-bottom: 18px;">
+          <label style="display: block; font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">
+            Security Password
+          </label>
+          <input type="password" id="login-password" value="PoliceSecure2026!" required class="search-input" style="width: 100%; padding: 10px 12px;">
+        </div>
+
+        <button type="submit" class="btn-action" style="width: 100%; padding: 12px; justify-content: center; font-size: 13px; font-weight: 600; background: linear-gradient(90deg, #0077ff, #00f0ff); border: none; border-radius: var(--radius-sm);">
+          AUTHENTICATE SESSION 🔐
+        </button>
+      </form>
+
+      <div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted); font-family: var(--font-mono);">
+        <span id="role-hint">Role: HQ Administrator</span>
+        <a href="/user" style="color: var(--accent-green); text-decoration: none;">Direct User Portal ➔</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       MAIN APPLICATION SCREEN
+       ====================================================================== -->
+  <div id="app-screen" style="display: flex; flex-direction: column; min-height: 100vh;">
+
+    <!-- Top App Header -->
+    <header class="app-header">
+      <div class="brand-section">
+        <div class="brand-icon">🛡️</div>
+        <div>
+          <div class="brand-title">
+            POLICE DEFENSE COMMAND
+            <span class="brand-badge">PQC-SECURED</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-telemetry">
+        <a href="/user" class="btn-action" style="background: rgba(0, 230, 118, 0.15); border-color: var(--accent-green); color: var(--accent-green); text-decoration: none; font-size: 11px;">
+          📹 Switch to Client / Store Camera Portal
+        </a>
+        <div class="telemetry-pill" id="ws-status-pill">
+          <span class="dot online"></span> WS CONNECTING
+        </div>
+        <div class="telemetry-pill" style="color: var(--accent-purple);">
+          🔐 ML-KEM-768 / AES-256
+        </div>
+        <div class="telemetry-pill" id="system-clock" style="color: var(--accent-cyan);">
+          00:00:00 UTC
+        </div>
+      </div>
+
+      <div class="user-profile">
+        <div class="user-badge">
+          <div class="user-name" id="header-user-name">Chief Inspector</div>
+          <div class="user-role" id="header-user-role">ADMIN [POLICE-HQ-001]</div>
+        </div>
+        <button id="btn-logout" class="btn-action btn-danger" style="padding: 6px 12px; font-size: 11px;">
+          Logout 🚪
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="app-container">
+
+      <!-- Sidebar Navigation -->
+      <aside class="app-sidebar">
+        <div style="padding: 0 8px 12px; font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">
+          Tactical Operations
+        </div>
+        <a class="nav-item active" data-tab="dashboard">
+          <span class="nav-icon">📊</span> Command Overview
+        </a>
+        <a class="nav-item" data-tab="user-cam" style="border-left: 3px solid var(--accent-green);">
+          <span class="nav-icon">📹</span> User Camera (Weapon Scanner)
+        </a>
+        <a class="nav-item" data-tab="live">
+          <span class="nav-icon">🎥</span> Live CCTV Network
+        </a>
+        <a class="nav-item" data-tab="incidents">
+          <span class="nav-icon">🚨</span> Security Incidents
+        </a>
+        <a class="nav-item" data-tab="evidence">
+          <span class="nav-icon">🔐</span> Quantum Evidence Vault
+        </a>
+        <a class="nav-item" data-tab="zones">
+          <span class="nav-icon">📐</span> Restricted Zones
+        </a>
+        <a class="nav-item" data-tab="audit">
+          <span class="nav-icon">📜</span> Forensic Audit Trail
+        </a>
+        <a class="nav-item" data-tab="system">
+          <span class="nav-icon">⚙️</span> System & Keys
+        </a>
+      </aside>
+
+      <!-- Main Dynamic Content Area -->
+      <main class="main-content">
+
+        <!-- Critical Red Alert Bar (Triggered on Weapon / Threat Detection) -->
+        <div id="critical-alert-bar" class="critical-alert-bar">
+          <div class="alert-bar-left">
+            <div style="font-size: 28px; animation: pulse-red 0.8s infinite;">🚨</div>
+            <div>
+              <div class="alert-bar-title" id="alert-bar-text">CRITICAL ALERT: WEAPON DETECTED</div>
+              <div class="alert-bar-details" id="alert-bar-meta">Incident ID: INC-20260827-0001 | Camera: CAM-01</div>
+            </div>
+          </div>
+          <button class="btn-action" style="background: #fff; color: #b40a28; border: none; font-weight: 700;" onclick="window.app.switchTab('evidence')">
+            SECURE EVIDENCE 🔐
+          </button>
+        </div>
+
+        <!-- ==============================================================
+             TAB: COMMAND DASHBOARD OVERVIEW
+             ============================================================== -->
+        <div id="tab-dashboard" class="tab-pane active">
+          <!-- Stats Cards Grid -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-label">Total Incidents</div>
+              <div class="stat-value" id="stat-total-incidents">0</div>
+              <div class="stat-sub">Recorded by Edge AI</div>
+            </div>
+            <div class="stat-card critical">
+              <div class="stat-label">Critical Alerts</div>
+              <div class="stat-value" style="color: var(--accent-red);" id="stat-critical-alerts">0</div>
+              <div class="stat-sub">Immediate Threat Action</div>
+            </div>
+            <div class="stat-card critical">
+              <div class="stat-label">Weapons Detected</div>
+              <div class="stat-value" style="color: var(--accent-red);" id="stat-weapons-detected">0</div>
+              <div class="stat-sub">Guns / Knives / Rifles</div>
+            </div>
+            <div class="stat-card warning">
+              <div class="stat-label">Violence & Fights</div>
+              <div class="stat-value" style="color: var(--accent-amber);" id="stat-violence-alerts">0</div>
+              <div class="stat-sub">CNN Motion Classifier</div>
+            </div>
+            <div class="stat-card warning">
+              <div class="stat-label">Intrusion Breaches</div>
+              <div class="stat-value" style="color: var(--accent-amber);" id="stat-intrusion-alerts">0</div>
+              <div class="stat-sub">Restricted Perimeters</div>
+            </div>
+            <div class="stat-card purple">
+              <div class="stat-label">Evidence Vault Files</div>
+              <div class="stat-value" style="color: var(--accent-purple);" id="stat-evidence-files">0</div>
+              <div class="stat-sub">ML-KEM-768 Encrypted</div>
+            </div>
+          </div>
+
+          <!-- 2-Column Dashboard Grid: Live Camera Preview & Recent Incidents -->
+          <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; margin-bottom: 24px;">
+            <!-- Live Monitor Preview Card -->
+            <div class="camera-card">
+              <div class="camera-header">
+                <div class="camera-title">
+                  <span>📹</span> Live Surveillance [CAM-01: Main Gate North]
+                </div>
+                <div class="camera-badge active">● AI ACTIVE</div>
+              </div>
+              <div class="camera-viewport">
+                <canvas id="live-feed-canvas" width="640" height="360"></canvas>
+              </div>
+            </div>
+
+            <!-- Recent Alerts Stream -->
+            <div class="table-panel" style="margin-bottom: 0;">
+              <div class="panel-header">
+                <h3 class="panel-title">⚡ Real-Time Alert Stream</h3>
+                <span class="badge badge-critical">LIVE</span>
+              </div>
+              <div id="recent-alerts-list">
+                <div style="color: var(--text-muted); font-size: 13px;">Awaiting live camera detections...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==============================================================
+             TAB: INTEGRATED USER / STORE CAMERA (WEAPON DETECTION & DISPATCH)
+             ============================================================== -->
+        <div id="tab-user-cam" class="tab-pane">
+          <!-- Dispatch Notification Banner -->
+          <div id="integrated-user-dispatch-banner" style="display: none; background: linear-gradient(90deg, rgba(255, 43, 86, 0.95), rgba(180, 10, 40, 0.95)); color: #fff; padding: 16px 24px; border-radius: var(--radius-md); margin-bottom: 20px; box-shadow: var(--shadow-glow-red); animation: critical-pulse 1.2s infinite alternate; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="font-size: 32px;">🚨</div>
+              <div>
+                <div style="font-family: var(--font-display); font-size: 20px; font-weight: 700;" id="integrated-user-banner-title">
+                  🔴 WEAPON DETECTED ON USER CAMERA — DISPATCHED TO POLICE HQ!
+                </div>
+                <div style="font-size: 13px; font-family: var(--font-mono); opacity: 0.95;" id="integrated-user-banner-meta">
+                  Incident ID: INC-20260827-0001 | Protected by NIST FIPS 203 ML-KEM-768 & AES-256-GCM
+                </div>
+              </div>
+            </div>
+            <button class="btn-action" style="background: #fff; color: #b40a28; border: none; font-weight: 700;" onclick="window.app.switchTab('evidence')">
+              INSPECT IN VAULT 🔐
+            </button>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 24px; margin-bottom: 24px;">
+            <!-- User Camera Card -->
+            <div class="camera-card" style="box-shadow: var(--shadow-sm);">
+              <div class="camera-header">
+                <div class="camera-title">
+                  <span>📹</span> User / Store Camera — Live Weapon Detection Scanner
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                  <select id="integrated-user-cam-source" class="search-input" style="padding: 4px 8px; font-size: 11px;">
+                    <option value="demo" selected>🎬 Demo Store CCTV</option>
+                    <option value="webcam">📹 Physical Webcam</option>
+                    <option value="file">📁 Upload Real-Time Video (.mp4)</option>
+                  </select>
+                  <input type="file" id="integrated-video-file-input" accept="video/mp4,video/webm,video/ogg,video/quicktime,video/avi" style="display: none;">
+                  <button type="button" id="btn-integrated-upload-video" class="btn-action" style="display: none; padding: 4px 10px; font-size: 11px; background: rgba(0, 240, 255, 0.2); border: 1px solid var(--accent-cyan); color: var(--accent-cyan); cursor: pointer;">
+                    📁 Choose File
+                  </button>
+                  <span id="integrated-video-filename" style="display: none; font-size: 11px; color: var(--accent-cyan); max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"></span>
+                </div>
+              </div>
+
+              <div class="camera-viewport" style="position: relative;">
+                <video id="integrated-webcam-video" autoplay playsinline muted style="position: absolute; top: -9999px; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none;"></video>
+                <canvas id="integrated-user-canvas" width="640" height="360" style="width: 100%; aspect-ratio: 16/9; background: #000;"></canvas>
+                <div class="camera-overlay-hud">
+                  <span id="integrated-hud-status" style="color: var(--accent-green);">● AI WEAPON SCANNER: ACTIVE (NO WEAPONS)</span>
+                  <span id="integrated-hud-fps">15.0 FPS</span>
+                </div>
+              </div>
+
+              <!-- Action Controls -->
+              <div style="padding: 14px 18px; background: rgba(18, 24, 38, 0.8); border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <div style="font-size: 12px; color: var(--text-secondary); font-family: var(--font-mono);">
+                  Threat Detection: <strong style="color: #fff;">🔪 Knife | ✂️ Scissors | 🔫 Gun | 🏏 Kattai / Stick</strong> &nbsp;|&nbsp; <span style="color: var(--accent-cyan);"><span class="dot online" style="margin-right: 4px;"></span>🔊 Audio Buzzer: ACTIVE</span>
+                </div>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                  <button id="btn-integrated-test-buzzer" class="btn-action" style="background: rgba(0, 240, 255, 0.2); border-color: var(--accent-cyan); color: var(--accent-cyan); font-size: 11px; padding: 6px 10px;">
+                    🔊 Test Buzzer
+                  </button>
+                  <button id="btn-integrated-sim-knife" class="btn-action" style="background: rgba(255, 43, 86, 0.2); border-color: var(--accent-red); color: var(--accent-red); font-size: 11px; padding: 6px 10px;">
+                    🔪 Knife Test
+                  </button>
+                  <button id="btn-integrated-sim-scissors" class="btn-action" style="background: rgba(255, 140, 0, 0.2); border-color: #ff8c00; color: #ff8c00; font-size: 11px; padding: 6px 10px;">
+                    ✂️ Scissors Test
+                  </button>
+                  <button id="btn-integrated-sim-gun" class="btn-action" style="background: rgba(0, 240, 255, 0.2); border-color: var(--accent-cyan); color: var(--accent-cyan); font-size: 11px; padding: 6px 10px;">
+                    🔫 Gun Test
+                  </button>
+                  <button id="btn-integrated-panic-sos" class="btn-action btn-danger" style="font-weight: 700; font-size: 11px; padding: 6px 12px;">
+                    🚨 PANIC SOS
+                  </button>
+                </div>
+              </div>
+              <audio id="security-buzzer-audio-hq" src="/static/sounds/buzzer.wav" preload="auto"></audio>
+            </div>
+
+            <!-- Workflow & Telemetry Info -->
+            <div class="table-panel" style="margin-bottom: 0;">
+              <div class="panel-header">
+                <h3 class="panel-title">🛡️ User ➔ Police Direct Link</h3>
+                <span class="badge badge-verified">ENCRYPTION ACTIVE</span>
+              </div>
+
+              <div style="background: rgba(13, 18, 29, 0.8); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 16px; margin-bottom: 16px; font-family: var(--font-mono); font-size: 12px;">
+                <div style="color: var(--text-muted); margin-bottom: 4px;">ACTIVE FACILITY:</div>
+                <div style="color: #fff; font-weight: 600; margin-bottom: 10px;">Metro Jewelers & Gold Exchange (Sector 4)</div>
+
+                <div style="color: var(--text-muted); margin-bottom: 4px;">DESTINATION:</div>
+                <div style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 10px;">Central Police HQ & Administrator Command</div>
+
+                <div style="color: var(--text-muted); margin-bottom: 4px;">POST-QUANTUM HYBRID ENCRYPTION:</div>
+                <div style="color: var(--accent-purple); font-weight: 600;">AES-256-GCM + NIST FIPS 203 ML-KEM-768</div>
+              </div>
+
+              <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">
+                <strong style="color: #fff;">Workflow Overview:</strong>
+                <ol style="padding-left: 18px; margin-top: 6px;">
+                  <li>User camera scans subject movements.</li>
+                  <li>When a weapon (Gun / Knife) appears, system immediately generates a Red Alert.</li>
+                  <li>A video clip is automatically recorded and post-quantum encrypted.</li>
+                  <li>The encrypted package is sent to Police & Admin dashboards with live siren sound.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tab-live" class="tab-pane">
+          <div class="table-panel">
+            <div class="panel-header">
+              <h3 class="panel-title">Multi-Camera Surveillance Network</h3>
+              <div style="display: flex; gap: 10px;">
+                <button class="filter-btn active" onclick="window.liveMonitor.activeSource = 'demo'">Demo Simulation</button>
+                <button class="filter-btn" onclick="window.liveMonitor.activeSource = 'webcam'">Webcam</button>
+              </div>
+            </div>
+
+            <div class="camera-grid">
+              <div class="camera-card">
+                <div class="camera-header">
+                  <div class="camera-title">CAM-01: Main Gate North</div>
+                  <div class="camera-badge active">● ACTIVE</div>
+                </div>
+                <div class="camera-viewport">
+                  <canvas id="live-feed-canvas-grid1" width="480" height="270" style="background: #000;"></canvas>
+                  <div class="camera-overlay-hud">
+                    <span>YOLO WEAPON DETECTOR: ACTIVE</span>
+                    <span>15.0 FPS</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="camera-card">
+                <div class="camera-header">
+                  <div class="camera-title">CAM-02: Perimeter North Corridor</div>
+                  <div class="camera-badge active">● ACTIVE</div>
+                </div>
+                <div class="camera-viewport" style="background: #0d121d; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-family: var(--font-mono); font-size: 12px;">
+                  [ CAM-02 RTSP STREAM ONLINE — 192.168.1.102 ]
+                </div>
+              </div>
+
+              <div class="camera-card">
+                <div class="camera-header">
+                  <div class="camera-title">CAM-03: Evidence Vault & Armory</div>
+                  <div class="camera-badge active">● ACTIVE</div>
+                </div>
+                <div class="camera-viewport" style="background: #0d121d; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-family: var(--font-mono); font-size: 12px;">
+                  [ CAM-03 RTSP STREAM ONLINE — 192.168.1.103 ]
+                </div>
+              </div>
+
+              <div class="camera-card">
+                <div class="camera-header">
+                  <div class="camera-title">CAM-04: Laboratory Entrance</div>
+                  <div class="camera-badge active">● RESTRICTED ZONE</div>
+                </div>
+                <div class="camera-viewport" style="background: #0d121d; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-family: var(--font-mono); font-size: 12px;">
+                  [ CAM-04 INTRUSION DETECTOR ACTIVE — 192.168.1.104 ]
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==============================================================
+             TAB: SECURITY INCIDENTS
+             ============================================================== -->
+        <div id="tab-incidents" class="tab-pane">
+          <div class="table-panel">
+            <div class="panel-header">
+              <h3 class="panel-title">Security Incidents & Crime Detections</h3>
+              <div class="filter-bar">
+                <button class="filter-btn active" onclick="window.app.loadIncidents('')">All</button>
+                <button class="filter-btn" onclick="window.app.loadIncidents('Weapon')">Weapons</button>
+                <button class="filter-btn" onclick="window.app.loadIncidents('Violence')">Violence</button>
+                <button class="filter-btn" onclick="window.app.loadIncidents('Intrusion')">Intrusions</button>
+                <button class="filter-btn" onclick="window.app.loadIncidents('Abandoned Object')">Abandoned Objects</button>
+                <button id="btn-clear-police-incidents" class="btn-action" style="background: rgba(255, 77, 77, 0.15); border-color: var(--accent-red); color: var(--accent-red); margin-left: 10px; font-size: 11px;" onclick="window.app.clearAllIncidents()">Clear All Incidents 🗑️</button>
+              </div>
+            </div>
+
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Incident ID</th>
+                  <th>Detection Type</th>
+                  <th>Severity</th>
+                  <th>Camera & Location</th>
+                  <th>Confidence</th>
+                  <th>Timestamp</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="incidents-table-body">
+                <tr><td colspan="8" style="text-align: center; color: var(--text-muted);">Loading incidents...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ==============================================================
+             TAB: QUANTUM EVIDENCE VAULT
+             ============================================================== -->
+        <div id="tab-evidence" class="tab-pane">
+          <div id="evidence-detail-view">
+            <div style="padding: 24px; text-align: center; color: var(--text-muted);">
+              Select an incident from the table or alert stream to inspect encrypted evidence.
+            </div>
+          </div>
+        </div>
+
+        <!-- ==============================================================
+             TAB: RESTRICTED ZONES
+             ============================================================== -->
+        <div id="tab-zones" class="tab-pane">
+          <div class="table-panel">
+            <div class="panel-header">
+              <h3 class="panel-title">Restricted Perimeter Geofence Configurator</h3>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px;">
+              <div>
+                <canvas id="zone-canvas" width="600" height="340" style="border: 1px solid var(--border-color); border-radius: var(--radius-sm); cursor: crosshair; display: block; width: 100%;"></canvas>
+                <div style="margin-top: 8px; font-size: 11px; color: var(--text-muted); font-family: var(--font-mono);">
+                  💡 Click on the canvas to add polygon boundary points (minimum 3 points).
+                </div>
+              </div>
+
+              <div>
+                <div style="background: rgba(13, 18, 29, 0.8); padding: 20px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+                  <h4 style="font-family: var(--font-display); font-size: 16px; margin-bottom: 14px; color: #fff;">Define New Perimeter</h4>
+                  
+                  <div style="margin-bottom: 12px;">
+                    <label style="font-size: 12px; color: var(--text-secondary);">Zone Name</label>
+                    <input type="text" id="zone-name-input" value="Laboratory High-Security Zone" class="search-input" style="width: 100%; margin-top: 4px;">
+                  </div>
+
+                  <div style="margin-bottom: 12px;">
+                    <label style="font-size: 12px; color: var(--text-secondary);">Alert Severity</label>
+                    <select id="zone-severity-select" class="search-input" style="width: 100%; margin-top: 4px;">
+                      <option value="CRITICAL">CRITICAL</option>
+                      <option value="HIGH" selected>HIGH</option>
+                      <option value="MEDIUM">MEDIUM</option>
+                    </select>
+                  </div>
+
+                  <div style="margin-bottom: 16px;">
+                    <label style="font-size: 12px; color: var(--text-secondary);">Normalized Vertices JSON</label>
+                    <div id="zone-points-preview" style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-cyan); background: #07090e; padding: 8px; border-radius: 4px; max-height: 80px; overflow-y: auto; margin-top: 4px;">
+                      []
+                    </div>
+                  </div>
+
+                  <div style="display: flex; gap: 10px;">
+                    <button id="btn-save-zone" class="btn-action" style="background: var(--accent-green); color: #000; font-weight: 600;">
+                      Save Zone
+                    </button>
+                    <button id="btn-reset-zone-points" class="btn-action btn-danger">
+                      Reset
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Existing Zones Table -->
+            <div style="margin-top: 24px;">
+              <h4 style="font-family: var(--font-display); font-size: 16px; margin-bottom: 12px;">Active Geofenced Zones</h4>
+              <table class="custom-table">
+                <thead>
+                  <tr>
+                    <th>Zone Code</th>
+                    <th>Name</th>
+                    <th>Severity</th>
+                    <th>Polygon Vertices</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="zones-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==============================================================
+             TAB: FORENSIC AUDIT TRAIL
+             ============================================================== -->
+        <div id="tab-audit" class="tab-pane">
+          <div class="table-panel">
+            <div class="panel-header">
+              <h3 class="panel-title">Immutable Forensic Audit Trail</h3>
+              <button class="btn-action" onclick="window.app.loadAuditLogs()">Refresh Log 🔄</button>
+            </div>
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Timestamp (UTC)</th>
+                  <th>Officer / Entity</th>
+                  <th>Action</th>
+                  <th>Incident Ref</th>
+                  <th>Details</th>
+                  <th>IP Address</th>
+                </tr>
+              </thead>
+              <tbody id="audit-table-body">
+                <tr><td colspan="6" style="text-align: center; color: var(--text-muted);">Loading audit trail...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ==============================================================
+             TAB: SYSTEM & KEYS
+             ============================================================== -->
+        <div id="tab-system" class="tab-pane">
+          <div id="pqc-info-container"></div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       CRITICAL ALERT MODAL POPUP
+       ====================================================================== -->
+  <div id="critical-alert-modal" class="modal-backdrop">
+    <div class="modal-content" style="border: 2px solid var(--accent-red); box-shadow: var(--shadow-glow-red);">
+      <div class="modal-header" style="background: rgba(255, 43, 86, 0.2); border-bottom: 1px solid var(--accent-red);">
+        <div class="modal-title" style="color: var(--accent-red); display: flex; align-items: center; gap: 10px;">
+          <span>🚨</span> CRITICAL SECURITY ALERT
+        </div>
+        <button class="close-btn" onclick="document.getElementById('critical-alert-modal').style.display='none'">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 20px;">
+          <div style="width: 80px; height: 80px; background: rgba(255, 43, 86, 0.15); border: 2px solid var(--accent-red); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 36px; animation: pulse-red 1s infinite;">
+            ⚠️
+          </div>
+          <div>
+            <h2 id="modal-alert-type" style="color: var(--accent-red); font-family: var(--font-display); font-size: 26px; font-weight: 700;">
+              WEAPON DETECTED
+            </h2>
+            <div style="font-size: 14px; color: var(--text-secondary); margin-top: 4px;">
+              Immediate threat response dispatched to facility security.
+            </div>
+          </div>
+        </div>
+
+        <div style="background: rgba(13, 18, 29, 0.9); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 16px; font-family: var(--font-mono); font-size: 13px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
+          <div><span style="color: var(--text-muted);">Threat Object:</span> <strong id="modal-alert-object" style="color: var(--accent-red);">Gun</strong></div>
+          <div><span style="color: var(--text-muted);">Camera Source:</span> <strong id="modal-alert-camera">CAM-01</strong></div>
+          <div><span style="color: var(--text-muted);">Confidence:</span> <strong id="modal-alert-confidence" style="color: var(--accent-green);">94.2%</strong></div>
+          <div><span style="color: var(--text-muted);">Incident ID:</span> <strong id="modal-alert-incident-id">INC-20260827-0001</strong></div>
+          <div style="grid-column: span 2;"><span style="color: var(--text-muted);">Timestamp:</span> <strong id="modal-alert-time">2026-08-27 10:42:31</strong></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-action" onclick="document.getElementById('critical-alert-modal').style.display='none'">
+          Dismiss
+        </button>
+        <button id="modal-btn-view-incident" class="btn-action" style="background: var(--accent-red); color: #fff; border: none; font-weight: 600;">
+          Inspect Encrypted Evidence 🔐
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/websocket.js"></script>
+  <script src="/static/js/live_monitor.js"></script>
+  <script src="/static/js/evidence_vault.js"></script>
+  <script src="/static/js/zones_editor.js"></script>
+  <script src="/static/js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,483 @@
+P000 [Normal] (align=CENTER (1)) [Runs: default/11.0/,default/11.0/,default/16.0/B]:
+  << TITLE – TIMES NEW ROMAN – SIZE 16>>
+
+P002 [Normal] (align=CENTER (1)) [Runs: default/14.0/B,default/14.0/B,default/14.0/B]:
+  PROJECT PHASE -I REPORT
+
+P004 [Normal] (align=CENTER (1)) [Runs: default/14.0/B,default/14.0/B,default/14.0/B]:
+  Submitted by
+
+P009 [Normal] (align=CENTER (1)) [Runs: default/14.0/B,default/14.0/B,default/14.0/B]:
+  in partial fulfillment of the requirements for the degree of
+
+P010 [Normal] (align=CENTER (1)) [Runs: default/16.0/B,default/16.0/B,default/16.0/B]:
+  BACHELOR OF ENGINEERING
+
+P011 [Normal] (align=CENTER (1)) [Runs: default/default/B]:
+  in
+
+P012 [Normal] (align=CENTER (1)) [Runs: default/16.0/B,default/16.0/B,default/16.0/B]:
+  COMPUTER SCIENCE AND ENGINEERING
+
+P013 [Normal] (align=CENTER (1)) [Runs: default/16.0/B,default/16.0/B,default/16.0/B]:
+  Dr. MAHALINGAM COLLEGE OF ENGINEERING AND TECHNOLOGY
+
+P014 [Normal] (align=CENTER (1)) [Runs: default/16.0/B,default/16.0/B,default/16.0/B]:
+  AN AUTONOMOUS INSTITUTION AFFILIATED TO ANNA UNIVERSITY CHENNAI 600 025
+
+P017 [Normal] (align=CENTER (1)) [Runs: default/16.0/B,default/16.0/B,default/16.0/B]:
+  OCTOBER 2026
+
+P018 [cfr_Scholarname] (align=None) [Runs: default/default/,default/default/,default/default/]:
+  dr. MAHALINGAM COLLEGE OF ENGINEERING AND TECHNOLOGY, POLLACHI -642 003
+
+P019 [cfr_BonafideHeading] (align=None) [Runs: default/default/]:
+  (An Autonomous Institution Affiliated to Anna University, Chennai - 600 025)
+
+P020 [cfr_Certificate] (align=None) [Runs: default/default/]:
+  Bonafide CERTIFICATE
+
+P021 [Normal] (align=None) [Runs: default/default/,default/default/B,default/default/B]:
+  Certified that this project report titled “Title – Times New Roman – size 13” is the bonafide work of
+
+P023 [Normal] (align=CENTER (1)) [Runs: default/default/,default/default/,default/default/]:
+  who carried out the project work under my supervision.
+
+P026 [Normal] (align=None) [Runs: default/default/,default/default/,default/default/]:
+  Submitted for the Autonomous End Semester Project Phase –I Viva-Voce Examination held on _______________________
+
+P029 [Normal] (align=None) [Runs: default/14.0/B]:
+  INTERNAL EXAMINER                           EXTERNAL EXAMINER
+
+P030 [Normal] (align=CENTER (1)) [Runs: default/16.0/B]:
+  Dr. Mahalingam College of Engineering and Technology, Pollachi-642003
+
+P031 [Normal] (align=CENTER (1)) [Runs: default/14.0/B,default/14.0/B,default/14.0/B]:
+  Academic Year: 2026 - 2027
+
+P032 [Normal] (align=None) [Runs: default/15.0/B]:
+  TRL, SDG and Similarity Compliance Certificate
+
+P033 [Normal] (align=None) [Runs: default/14.0/B,default/14.0/B,default/default/]:
+  Project Title: Automated Brain Tumor Prediction using Advanced
+
+P034 [Normal] (align=None) [Runs: default/default/]:
+  Deep Learning Techniques
+
+P035 [Normal] (align=None) [Runs: default/14.0/,default/14.0/B,default/14.0/B]:
+  Course Code: 23CSP701
+
+P036 [Normal] (align=None) [Runs: default/14.0/,default/14.0/B,default/14.0/B]:
+  Department and Semester: CSE / VII
+
+P038 [Normal] (align=None) [Runs: default/12.0/B,default/12.0/B,default/12.0/B]:
+  Technology Readiness Level (TRL) of the Project	    : ________________
+
+P039 [Normal] (align=None) [Runs: default/12.0/B,default/12.0/B,default/12.0/B]:
+  Sustainability Development Goals (SDG)-Goal Name : ________________
+
+P040 [Normal] (align=None) [Runs: default/12.0/B,default/12.0/B,default/12.0/B]:
+  Similarity % from Turnitin Software		    : ________________
+
+P042 [Normal] (align=CENTER (1)) [Runs: default/14.0/B,default/14.0/B]:
+  We hereby declare that this project report is original and complies with the institution's similarity guidelines.
+
+P043 [Normal] (align=CENTER (1)) [Runs: default/14.0/B]:
+  Verified by
+
+P047 [Normal] (align=None) [Runs: default/14.0/,default/14.0/,default/14.0/]:
+  Name & Signature of the Guide			      Head of the Department
+
+P048 [Normal] (align=None) [Runs: default/14.0/,default/14.0/,default/14.0/]:
+  (Type your guide name)				      (Dr. D. SIVAGANESAN)
+
+P050 [Normal] (align=CENTER (1)) [Runs: default/14.0/B]:
+  Endorsed by
+
+P055 [Normal] (align=None) [Runs: default/14.0/,default/14.0/,default/14.0/]:
+  INTERNAL EXAMINER			    EXTERNAL EXAMINER
+
+P076 [Normal] (align=None) [Runs: default/7.5/,default/16.0/B]:
+  ABSTRACT
+
+P077 [cfr_Acknowledgementtitle] (align=None) [Runs: default/default/]:
+  ABSTRACT
+
+P078 [Normal] (align=None) [Runs: default/default/]:
+  1.5 spacing
+
+P079 [Normal] (align=None) [Runs: default/default/]:
+  Times new Roman – 12 font size
+
+P080 [Normal] (align=None) [Runs: default/default/]:
+  Maximum (200 words)
+
+P083 [cfr_Acknowledgementtitle] (align=None) [Runs: default/default/]:
+  ACKNOWLEDGEMENT
+
+P085 [cfr_Ackcontent] (align=None) [Runs: default/12.0/,default/12.0/B,default/12.0/B]:
+  We would like to express my sincere thanks and a deep sense of gratitude to the Management, Dr. S. V. Subramanian, Ph.D., Secretary and                                  Dr. P. Govindasamy, Ph.D., Joint Secretary & Principal for providing us necessary facilities to carry out this project.
+
+P086 [cfr_Ackcontent] (align=None) [Runs: default/12.0/,default/12.0/B,default/12.0/B]:
+  We are proudly rendering our thanks to Dr. A. Senthilkumar, Ph.D.,       Vice principal for the facilities and the encouragement given by him to the progress and completion of our project.
+
+P087 [cfr_Ackcontent] (align=None) [Runs: default/12.0/,default/12.0/B,default/12.0/B]:
+  We proudly render our immense gratitude to the Dr. K. Vijayakumar Ph.D., Associate Dean Academics for his effective leadership, encouragement and guidance in the project.
+
+P088 [cfr_Ackcontent] (align=None) [Runs: default/12.0/,default/12.0/B,default/12.0/B]:
+  We also heartily thank Dr. D. Sivaganesan Ph.D., Head of the Department of Computer Science and Engineering, for providing us the facilities for the completion of this work.
+
+P089 [cfr_Ackcontent] (align=None) [Runs: default/12.0/,default/12.0/B,default/12.0/]:
+  We express our deep sense of gratitude with sincerity to our project guide Mr. K. Prabhu M.Tech., Assistant Professor (SS), Department of Computer Science and Engineering for the valuable suggestion and guidance offered during the course of the project.
+
+P090 [cfr_Ackcontent] (align=None) [Runs: default/12.0/,default/12.0/B,default/12.0/B]:
+  We sincerely thank our project coordinator, Mr. K.Prabhu, M.Tech., Assistant Professor(SS), Department of Computer Science and Engineering, for his valuable support and encouragement in developing this project successfully.
+
+P091 [cfr_Ackcontent] (align=None) [Runs: default/12.0/,default/12.0/]:
+  Finally, we thank all those who had contributed directly and indirectly towards the success of this project.
+
+P115 [Normal] (align=RIGHT (2)) [Runs: default/7.5/,default/16.0/B,default/16.0/B]:
+  TABLE OF CONTENTS
+
+P116 [Normal] (align=CENTER (1)) [Runs: default/default/B]:
+  TABLE OF CONTENTS
+
+P124 [cfr_Tablesandfigures] (align=None) [Runs: default/default/]:
+  LIST OF TABLES
+
+P136 [cfr_Tablesandfigures] (align=None) [Runs: default/default/]:
+  LIST OF FIGURES
+
+P144 [cfr_Tablesandfigures] (align=None) [Runs: default/default/]:
+  LIST OF ABBREVIATIONS
+
+P170 [Normal] (align=RIGHT (2)) [Runs: default/16.0/B]:
+  CHAPTER 1
+
+P171 [Normal] (align=RIGHT (2)) [Runs: default/16.0/B,default/16.0/B,default/7.5/]:
+  INTRODUCTION
+
+P174 [cfr_ChapterHead] (align=None) [Runs: default/default/]:
+  Introduction
+
+P175 [Heading 2] (align=None) [Runs: default/14.0/]:
+  INTRODUCTION TO BRAIN TUMOR DETECTION
+
+P176 [cfr_Chaptercontent] (align=None) [Runs: default/12.0/]:
+  One of the most dangerous neurological conditions affecting the human brain is brain tumors. When aberrant cells proliferate uncontrolled inside brain tissues, it can become a brain tumor, which can interfere with regular brain activities and, if left undetected, might be fatal. In order to improve treatment results and raise patient survival rates, early and correct diagnosis is essential.
+
+P177 [cfr_Chaptercontent] (align=None) [Runs: default/12.0/,default/12.0/,default/12.0/]:
+  Doctors frequently utilize medical imaging technologies like Magnetic Resonance Imaging (MRI) to look at brain architecture and find anomalies. Medical practitioners can determine the existence, size and location of tumors by using the comprehensive pictures of the brain that MRI scans reveal. However, it takes a lot of effort and experience to manually analyze these photographs. Manual analysis frequently results in errors or delays in diagnosis, particularly when a lot of photos need to be reviewed.
+
+P178 [cfr_Chaptercontent] (align=None) [Runs: default/12.0/]:
+  Automated systems can now help medical personnel analyze medical pictures more effectively because to the quick development of deep learning and artificial intelligence technology. Large amounts of MRI data may be processed by these clever programs, which might find patterns that would be hard for people to recognize. Consequently, automated brain tumor prediction systems have grown in importance as a field of study in medical image analysis.
+
+P180 [Heading 2] (align=None) [Runs: default/14.0/,default/14.0/,default/14.0/]:
+  IMPORTANCE OF AUTOMATED BRAIN TUMOR PREDICTION
+
+P181 [cfr_Chaptercontent] (align=None) [Runs: default/12.0/,default/12.0/,default/12.0/]:
+  Effective treatment planning and patient recovery depend on the early diagnosis of brain tumors. In order to interpret MRI pictures, traditional diagnostic techniques mostly rely on the expertise of radiologists and neurologists. Even though these professionals are essential to the diagnostic process, manually reviewing photographs may be laborious and occasionally prone to human mistake.Medical practitioners can discover cancers more rapidly and precisely with the use of automated brain tumor prediction tools. These algorithms are able to analyze MRI scans, identify aberrant areas and accurately categorize different types of tumors by employing sophisticated deep learning techniques. This increases the consistency and dependability of diagnostic outcomes while also lessening the burden of medical professionals.
+
+P182 [cfr_Chaptercontent] (align=None) [Runs: default/12.0/,default/12.0/,default/12.0/]:
+  Hospitals can effectively handle massive amounts of medical imaging data with the aid of such sophisticated systems. Healthcare professionals can concentrate more on patient care and treatment planning by automating some parts of the diagnostic process. In general, automated prediction systems lead to better healthcare outcomes, quicker diagnosis and better medical decision-making.
+
+P183 [Heading 2] (align=None) [Runs: default/14.0/]:
+  ROLE OF DEEP LEARNING IN MEDICAL IMAGE ANALYSIS
+
+P184 [cfr_Chaptercontent] (align=None) [Runs: default/default/B,default/14.0/B,default/14.0/B]:
+  1.4      OBJECTIVE OF THE SYSTEM
+
+P185 [cfr_Chaptercontent] (align=None) [Runs: default/12.0/,default/12.0/,default/12.0/]:
+  The primary goal of the suggested Automated Brain Tumor Prediction System is to create a sophisticated system that can help doctors identify and evaluate brain cancers using MRI pictures. By using cutting-edge deep learning algorithms, the system seeks to increase the precision, effectiveness and dependability of tumor identification.
+
+P186 [cfr_Chaptercontent] (align=None) [Runs: default/12.0/]:
+  The following are the system's particular goals:
+
+P187 [cfr_Chaptercontent] (align=None) [Runs: default/12.0/]:
+  To enhance image quality for analysis by preprocessing brain MRI images using methods like resizing and normalization.
+
+P188 [cfr_Chaptercontent] (align=None) [Runs: default/12.0/]:
+  To use the U-Net segmentation model to precisely detect and separate tumor areas from MRI images.
+
+P189 [cfr_Chaptercontent] (align=None) [Runs: default/12.0/]:
+  To classify the detected tumors by applying the Vision Transformer (ViT) model for effective image classification.
+
+P190 [cfr_Chaptercontent] (align=None) [Runs: default/12.0/]:
+  To analyze tumor growth regions and spatial relationships using a Graph Neural Network (GNN).
+
+P191 [cfr_Chaptercontent] (align=None) [Runs: default/12.0/]:
+  To reduce the time required for manual tumor analysis and support doctors in early diagnosis and treatment planning.
+
+P192 [cfr_Chaptercontent] (align=None) [Runs: default/12.0/]:
+  To use cutting-edge deep learning techniques to increase the overall precision and dependability of brain tumor prediction.
+
+P219 [Normal] (align=RIGHT (2)) [Runs: default/16.0/B]:
+  CHAPTER 2
+
+P220 [Normal] (align=RIGHT (2)) [Runs: default/16.0/B,default/7.5/]:
+  LITERATURE SURVEY
+
+P223 [cfr_ChapterHead] (align=None) [Runs: default/default/]:
+  LITERATURE SURVEY
+
+P224 [Heading 2] (align=JUSTIFY (3)) [Runs: default/14.0/]:
+  MULTI-TASK MODEL FOR GLIOMA SEPARATION AND CLASSIFICATION BASED ON TRANSFORMERS
+
+P225 [Normal (Web)] (align=JUSTIFY (3)) [Runs: Times New Roman/default/,Times New Roman/default/,Times New Roman/default/]:
+  A transformer-based multi-task deep learning model for glioma segmentation and tumor classification using brain MRI images was introduced by Y. Li et.al., in [1]. The model utilizes transformer layers to capture long-range dependencies between image regions, enabling better understanding of complex medical image structures. The architecture allows the network to perform segmentation and classification tasks simultaneously, which improves computational efficiency and feature sharing between tasks. The authors evaluated the model using MRI datasets and reported improved accuracy compared with traditional convolution-based methods. An important contribution of this work is the integration of attention-based learning for medical image analysis. However, the model requires large training datasets and significant computational resources, which may limit its practical use in smaller medical facilities.
+
+P243 [Normal] (align=RIGHT (2)) [Runs: default/16.0/B]:
+  CHAPTER 3
+
+P244 [Normal] (align=RIGHT (2)) [Runs: default/16.0/B,default/7.5/]:
+  EXISTING SYSTEM
+
+P247 [cfr_ChapterHead] (align=None) [Runs: default/default/]:
+  EXISTING SYSTEM
+
+P248 [Heading 2] (align=None) [Runs: default/14.0/,default/14.0/,default/14.0/]:
+  Overview of the existing system
+
+P249 [Heading 2] (align=None) [Runs: default/default/,default/default/,default/default/]:
+  BLOCK DIAGRAM OF THE EXISTING SYSTEM
+
+P251 [Normal] (align=CENTER (1)) [Runs: default/12.0/B,default/12.0/B,default/12.0/B]:
+  Figure 3.1 Block diagram of the Existing System
+
+P253 [cfr_Chaptercontent] (align=None) [Runs: default/12.0/]:
+  The current technique begins by gathering MRI pictures from hospital imaging systems or medical databases. The interior anatomy of the brain is shown in great detail by these MRI images.
+
+P254 [Heading 2] (align=None) [Runs: default/14.0/,default/14.0/,default/14.0/]:
+  Drawbacks of the Existing System
+
+P271 [Normal] (align=RIGHT (2)) [Runs: default/16.0/B]:
+  CHAPTER 4
+
+P272 [Normal] (align=RIGHT (2)) [Runs: default/16.0/B,default/7.5/]:
+  PROPOSED SYSTEM
+
+P275 [cfr_ChapterHead] (align=None) [Runs: default/default/]:
+  proposed SYSTEM
+
+P276 [Heading 2] (align=None) [Runs: default/14.0/,default/14.0/]:
+  Overview of the proposed system
+
+P277 [Heading 2] (align=None) [Runs: default/14.0/,default/14.0/,default/14.0/]:
+  BLOCK DIAGRAM OF the PROPOSED SYSTEM
+
+P281 [cfr_Chaptercontent] (align=CENTER (1)) [Runs: default/12.0/B,default/12.0/B,default/12.0/B]:
+  Figure 4.1 Block diagram of the Proposed System
+
+P282 [cfr_Chaptercontent] (align=None) [Runs: default/12.0/,default/12.0/]:
+  The proposed method starts with MRI images gathered from the BraTS and Mendeley databases. In order to prepare these photos for model training, they first go through a preprocessing step where scaling and normalizing are implemented.
+
+P283 [cfr_Chaptercontent] (align=None) [Runs: default/12.0/]:
+  system generates information regarding the tumor location and the tumor categorization result.
+
+P284 [Heading 2] (align=None) [Runs: default/14.0/,default/14.0/]:
+  module description
+
+P285 [Heading 3] (align=None) [Runs: default/14.0/]:
+  DATA COLLECTION AND PREPROCESSING
+
+P303 [Normal] (align=RIGHT (2)) [Runs: default/16.0/B]:
+  CHAPTER 5
+
+P304 [Normal] (align=RIGHT (2)) [Runs: default/16.0/B,default/7.5/,default/16.0/B]:
+  IMPLEMENTATION AND SETUP
+
+P307 [cfr_ChapterHead] (align=None) [Runs: default/default/,default/default/]:
+  IMPLEMENTATION and setup
+
+P308 [Heading 2] (align=None) [Runs: default/14.0/]:
+  Implementation Overview
+
+P309 [Heading 2] (align=JUSTIFY (3)) [Runs: default/14.0/]:
+  Development Environment
+
+P310 [Heading 2] (align=JUSTIFY (3)) [Runs: default/14.0/]:
+  Dataset Setup
+
+P311 [Heading 2] (align=JUSTIFY (3)) [Runs: default/14.0/]:
+  Model Integration
+
+P312 [Heading 2] (align=JUSTIFY (3)) [Runs: default/14.0/]:
+  Model Training
+
+P313 [Heading 2] (align=JUSTIFY (3)) [Runs: default/14.0/]:
+  Web Interface and Result Visualization
+
+P338 [Normal] (align=RIGHT (2)) [Runs: default/16.0/B]:
+  CHAPTER 6
+
+P339 [Normal] (align=RIGHT (2)) [Runs: default/7.5/,default/16.0/B,default/16.0/B]:
+  RESULT AND DISCUSSION
+
+P342 [cfr_ChapterHead] (align=None) [Runs: default/default/,default/default/]:
+  rESULTs and discussion
+
+P343 [Heading 2] (align=None) [Runs: default/14.0/]:
+  Experimental Results
+
+P344 [Normal (Web)] (align=JUSTIFY (3)) [Runs: Times New Roman/default/]:
+  MRI images from the testing dataset were used to evaluate the effectiveness of the proposed automated brain tumor analysis system. The proposed framework integrates three deep learning models that perform different tasks within the system.
+
+P345 [Heading 2] (align=None) [Runs: default/14.0/,default/14.0/,default/14.0/]:
+  Performance Evaluation of the Proposed Models
+
+P346 [Normal (Web)] (align=JUSTIFY (3)) [Runs: Times New Roman/default/]:
+  The performance results obtained from the trained models are summarized in Table 6.1.
+
+P350 [Heading 3] (align=None) [Runs: default/12.0/]:
+  Table 6.1 Performance Evaluation of the Proposed Models
+
+P351 [Normal (Web)] (align=JUSTIFY (3)) [Runs: Times New Roman/default/]:
+  From the results presented in Table 6.1, it can be observed that the Vision Transformer model achieves the highest performance across all evaluation metrics, demonstrating its strong capability in accurately classifying tumor types from MRI images. The U-Net model also achieves high accuracy in detecting tumor regions, while the Graph Neural Network provides additional structural analysis of the segmented tumor region.
+
+P374 [Normal] (align=RIGHT (2)) [Runs: default/16.0/B]:
+  CHAPTER 7
+
+P375 [Normal] (align=RIGHT (2)) [Runs: default/7.5/,default/16.0/B]:
+  CONCLUSION AND FUTURE ENHANCEMENT
+
+P378 [cfr_ChapterHead] (align=None) [Runs: default/default/]:
+  CONCLUSION AND FUTURE ENHANCEMENT
+
+P379 [Heading 2] (align=None) [Runs: default/14.0/]:
+  CONCLUSION
+
+P380 [Heading 2] (align=JUSTIFY (3)) [Runs: default/14.0/]:
+  Future Enhancement
+
+P398 [cfr_ReferHead] (align=None) [Runs: default/default/]:
+  REFERENCES
+
+P399 [Normal] (align=JUSTIFY (3)) [Runs: default/default/,default/default/,default/12.0/]:
+  [1]	Y. Li, K. Zheng, S. Li, X. Wang and J. Zhang, “A transformer-based multi-task deep learning model for glioma segmentation and classification using brain MRI,” Cancer Imaging, vol. 23, no. 1, pp. 1–12, 2023.
+
+P400 [Normal] (align=JUSTIFY (3)) [Runs: default/12.0/,default/12.0/]:
+  [2]
+
+P423 [Normal] (align=RIGHT (2)) [Runs: default/16.0/B]:
+  APPENDIX A
+
+P424 [Normal] (align=RIGHT (2)) [Runs: default/7.5/,default/16.0/B]:
+  SOURCE CODE
+
+P425 [Heading 1] (align=None) [Runs: default/default/]:
+  APPENDIX A
+
+P426 [cfr_ChapterHead] (align=None) [Runs: default/default/]:
+  SOURCE CODE
+
+P427 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  unet_review.ipynb:
+
+P428 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  import numpy as np
+
+P429 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  import cv2
+
+P430 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  import tensorflow as tf
+
+P431 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  import matplotlib.pyplot as plt
+
+P432 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  from tqdm import tqdm
+
+P433 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  from skimage import measure
+
+P434 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  print("Loading trained U-Net model...")
+
+P435 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  MODEL_PATH = r"D:\College\Semester 8\Project\AUTOMATED_BRAIN_TUMOR_PREDICTION\saved_models\unet_final_model.h5"
+
+P436 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  model = tf.keras.models.load_model(MODEL_PATH, compile=False)
+
+P437 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  INPUT_H = model.input_shape[1]
+
+P438 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  INPUT_W = model.input_shape[2]
+
+P439 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  print(f" Model loaded. Expected input size: {INPUT_H}x{INPUT_W}\n")
+
+P440 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  # ---------------------- Preprocess MRI ----------------------
+
+P441 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  def preprocess_mri(image_path):
+
+P442 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+
+P443 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  if img is None:
+
+P444 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  raise ValueError(" Image path invalid or file missing!")
+
+P445 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  img_resized = cv2.resize(img, (INPUT_W, INPUT_H))
+
+P446 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  img_norm = img_resized / 255.0
+
+P447 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  img_norm = np.expand_dims(img_norm, axis=-1)
+
+P448 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  img_norm = np.expand_dims(img_norm, axis=0)
+
+P449 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  return img_resized, img_norm
+
+P450 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  # ---------------------- Predict Soft Mask ----------------------
+
+P451 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  def predict_soft_mask(img_tensor):
+
+P452 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  pred = model.predict(img_tensor, verbose=0)
+
+P453 [cfr_ChapterHead] (align=LEFT (0)) [Runs: default/12.0/]:
+  soft_mask = pred[0, :, :, 0]
+
+P477 [Normal] (align=RIGHT (2)) [Runs: default/16.0/B]:
+  APPENDIX B
+
+P478 [Normal] (align=RIGHT (2)) [Runs: default/7.5/,default/16.0/B]:
+  SNAPSHOTS
+
+P479 [cfr_ReferDetail] (align=CENTER (1)) [Runs: default/default/B,default/default/B]:
+  APPENDIX B
+
+P480 [cfr_ReferDetail] (align=CENTER (1)) [Runs: default/default/B]:
+  SNAPSHOTS
+
+P484 [cfr_ReferDetail] (align=CENTER (1)) [Runs: default/12.0/B]:
+  Figure B.2 ViT Architecture for MRI Image Classification
+
+P485 [cfr_ReferDetail] (align=None) [Runs: default/12.0/]:
+  The above figure B.2 shows the Vision Transformer (ViT) architecture used for MRI image classification. The model divides the image into patches and applies attention mechanisms to identify important tumor features.
+
+P512 [Normal] (align=RIGHT (2)) [Runs: default/16.0/B,default/16.0/B]:
+  APPENDIX C
+
+P513 [Normal] (align=RIGHT (2)) [Runs: default/7.5/,default/16.0/B]:
+  CERTIFICATE
+
+P515 [cfr_ReferDetail] (align=CENTER (1)) [Runs: default/default/B,default/default/B]:
+  APPENDIX C
+
+P516 [cfr_ReferDetail] (align=CENTER (1)) [Runs: default/default/B]:
+  CERTIFICATES
+
